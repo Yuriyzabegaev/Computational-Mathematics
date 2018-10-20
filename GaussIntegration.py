@@ -7,7 +7,6 @@ from sympy.functions.special.polynomials import legendre as Legendre
 from NewtonMethodForNonlinearSystem import newton_method_for_nonlinear_system
 
 
-
 def gauss_method(func: sp.Function,
                  variable: sp.Symbol,
                  bottom_bound: float,
@@ -53,11 +52,3 @@ def gauss_method(func: sp.Function,
     for i in range(0, number_of_points):
         gauss_integral += w_i_list[i]*f(x_i_list[i])
     return gauss_integral
-
-
-
-
-if __name__ == "__main__":
-    x = sp.Symbol('x')
-    f_x = sp.sin(100 * x) * sp.exp(x ** 2) * sp.cos(2 * x)
-    print(gauss_method(f_x, x, 0, 3, 3))

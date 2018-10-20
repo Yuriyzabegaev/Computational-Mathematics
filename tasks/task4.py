@@ -1,8 +1,7 @@
-import sympy as sp
 import numpy as np
 import matplotlib.pyplot as plt
 
-from interpolations.SplineInterpolation import SplineInterpolation
+from SplineInterpolation import SplineInterpolation
 
 
 if __name__ == '__main__':
@@ -22,6 +21,11 @@ if __name__ == '__main__':
     # Solution:
 
     spline = SplineInterpolation(v_x, v_f)
+
+    x = np.linspace(v_x[0], v_x[-1], 400, endpoint=True)
+    y = [spline(x) for x in x]
+    plt.plot(x, y, 'r')
+    plt.show()
     print(spline(point1))
     print(spline(point2))
     print(spline(point3))

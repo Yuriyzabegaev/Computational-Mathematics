@@ -26,7 +26,11 @@ def newton_method_for_nonlinear_system(variables: list,
 
     jacobi_matrix_func = sp.lambdify(variables, jacobi_matrix, 'numpy')
     free_column_func = sp.lambdify(variables, equations, 'numpy')
+
+    counter = 0
+
     while 1:
+        counter += 1
         # calculating W (jacobi matrix)
         W = jacobi_matrix_func(*x_i)
         W_inv= la.inv(W)

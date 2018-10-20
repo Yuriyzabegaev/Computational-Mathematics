@@ -42,25 +42,3 @@ class NewtonInterpolation:
 
         result = result.simplify()
         return result
-
-
-if __name__ == "__main__":
-    # Task VI.9.32 a)
-
-    # Input
-    v_x = [i * 10 for i in range(1, 11)]
-    v_f = [92228496.0,
-           106021537.0,
-           123202624.0,
-           132164569.0,
-           151325798.0,
-           179323175.0,
-           203211926.0,
-           226545805.0,
-           248709873.0,
-           281421906.0]
-
-    # Solution
-    n = NewtonInterpolation(x=v_x,
-                            f_x=v_f).get_polynomial_function()
-    print('difference in extrapolation: ' + str(n(110) -  308745538))
